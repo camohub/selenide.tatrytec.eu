@@ -24,8 +24,8 @@ public class HomepageTest extends baseTest
         homepagePage.openPage();
 
         homepagePage.testHeader();
+        homepagePage.testMenu();
         homepagePage.testArticles();
         homepagePage.testPagination();
-        homepagePage.testMenu();
     }
 }

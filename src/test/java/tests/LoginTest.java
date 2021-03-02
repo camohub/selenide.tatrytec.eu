@@ -24,7 +24,7 @@ public class LoginTest extends baseTest
 
         loginPage.openLoginModal();
         loginPage.fillLoginForm();
-        loginPage.sendLoginForm();
+        loginPage.checkLoginResponse();
 
     }
 }
