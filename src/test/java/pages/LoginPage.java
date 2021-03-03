@@ -30,44 +30,25 @@ public class LoginPage
     public LoginPage()
     {
         this.driver = WebDriverRunner.getWebDriver();
-    }
-
-
-    public void openPage()
-    {
         open(URL);
         driver.manage().window().maximize();
     }
 
 
-    public void openLoginModal() throws InterruptedException
+    public void fillLoginForm(String email, String pass)
     {
-        this.modal = $("#loginModal").shouldBe(hidden);
-        SelenideElement email = modal.find( byName("email") ).shouldBe(hidden);
-        SelenideElement password = modal.find( byName("password") ).shouldBe(hidden);
-        SelenideElement submit = modal.find( byAttribute("type", "submit") ).shouldBe(hidden);
-
         $("#sideMenu").find(byAttribute("data-target", "#loginModal")).click();
 
-        this.modal.shouldBe(visible);
-        email.shouldBe(visible);
-        password.shouldBe(visible);
-        submit.shouldBe(visible);
-    }
-
-
-    public void fillLoginForm()
-    {
-        modal.find( byName("email") ).sendKeys("aaaaa@aaaaa.aa");
-        modal.find( byName("password") ).sendKeys("aaaaaaaaaaa");
+        SelenideElement modal = $("#loginModal").should(appear);
+        modal.find( byName("email") ).val(email);
+        modal.find( byName("password") ).val(pass);
         modal.find( byAttribute("type", "submit") ).click();
     }
 
 
-    public void checkLoginResponse()
+    public void checkLoginResponse(String cssSelector, String text)
     {
         // Is new element do not use prev one.
-        SelenideElement modal = $("#loginModal").shouldBe(visible, ofSeconds(7));
-        modal.find(By.className("alert-danger")).shouldHave(text("Nesprávny email alebo heslo."));
+        $(cssSelector).shouldBe(visible, ofSeconds(7)).shouldHave(text(text));
     }
 }

@@ -40,6 +40,7 @@ public class WebDriverService
             driver = new RemoteWebDriver(this.getRemoteUrl(), getChromeOptions());
         }
 
+        // SELENIDE needs this driver.
         WebDriverRunner.setWebDriver(driver);
     }
 
