@@ -1,33 +1,23 @@
+
 package pages;
 
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
-
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static java.time.Duration.ofSeconds;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class BasePage
 {
-    WebDriver driver;
 
-
-    public BasePage()
-    {
-        this.driver = WebDriverRunner.getWebDriver();
-    }
+    public static String OPEN_URL = "";  // Needs to have empty string. Does not work without value or null.
 
 
     public void login()
     {
-        open("https://tatrytec.eu");
-        driver.manage().window().maximize();
-
         $("#sideMenu").find(byAttribute("data-target", "#loginModal")).click();
 
         SelenideElement modal = $("#loginModal");

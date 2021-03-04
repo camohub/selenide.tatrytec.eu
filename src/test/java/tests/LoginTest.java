@@ -1,16 +1,19 @@
 package tests;
 
+
 import categories.FastTest;
 import categories.FullTest;
-import com.google.code.tempusfugit.concurrency.ConcurrentTestRunner;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPage;
-
 import java.util.Arrays;
 import java.util.List;
+
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
+import static pages.BasePage.OPEN_URL;
 
 
 @Category({FastTest.class, FullTest.class})
@@ -41,7 +44,6 @@ public class LoginTest extends baseTest
 
         loginPage.fillLoginForm(email, passwrod);
         loginPage.checkLoginResponse(cssSelector, message);
-
     }
 
 

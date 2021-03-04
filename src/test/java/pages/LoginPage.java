@@ -1,37 +1,23 @@
+
 package pages;
 
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static java.time.Duration.*;
 
 
-public class LoginPage
+public class LoginPage extends BasePage
 {
-
-    private String URL = "https://tatrytec.eu";
-
-    private WebDriver driver;
-
-    private SelenideElement modal;
-
 
     public LoginPage()
     {
-        this.driver = WebDriverRunner.getWebDriver();
-        open(URL);
-        driver.manage().window().maximize();
+        open(OPEN_URL);
+        page(this);
     }
 
 
@@ -49,6 +35,7 @@ public class LoginPage
     public void checkLoginResponse(String cssSelector, String text)
     {
         // Is new element do not use prev one.
-        $(cssSelector).shouldBe(visible, ofSeconds(7)).shouldHave(text(text));
+        $(cssSelector).shouldBe(visible, ofSeconds(7))
+                .shouldHave(text(text).because("Prihlasovanie nedopadlo podľa očakávania. Alert neobsahuje text " + text));
     }
 }

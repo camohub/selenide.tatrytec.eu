@@ -1,34 +1,20 @@
+
 package pages;
 
 
 import com.codeborne.selenide.*;
-import org.openqa.selenium.WebDriver;
-
-import java.util.List;
-
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class HomepagePage
+public class HomepagePage extends BasePage
 {
-
-    private String URL = "https://tatrytec.eu";
-
-    private final WebDriver driver;
-
 
     public HomepagePage()
     {
-        driver = WebDriverRunner.getWebDriver();
-    }
-
-
-    public void openPage()
-    {
-        open(URL);
-        //driver.manage().window().maximize();
+        open(OPEN_URL);
+        page(this);
     }
 
 
@@ -40,7 +26,8 @@ public class HomepagePage
 
     public void testArticles()
     {
-        ElementsCollection articles = $$("#main h1 a").shouldBe( size(7) );
+        ElementsCollection articles = $$("#main h1 a")
+                .shouldBe( size(7).because("Počet článkov na homepage by mal byť 7.") );
     }
 
 
@@ -48,16 +35,16 @@ public class HomepagePage
     {
         ElementsCollection sideMenu = $$("#sideMenu li")
                 .shouldBe( sizeGreaterThan(4) )
-                .shouldHave( itemWithText("Najnovšie") )
-                .shouldHave( itemWithText("Prihlásiť") )
-                .shouldHave( itemWithText("Registrovať") );
+                .shouldHave( itemWithText("Najnovšie").because("Menu by malo obsahovať kategóriu Najnovšie.") )
+                .shouldHave( itemWithText("Prihlásiť").because("Menu by malo obsahovať odkaz Prihlásiť.") )
+                .shouldHave( itemWithText("Registrovať").because("Menu by malo obsahovať odkaz Registrovať.") );
     }
 
 
     public void testPagination()
     {
         ElementsCollection pagination = $$("ul.pagination li").shouldBe( sizeGreaterThan(2) );
-        pagination.get(1).shouldHave(cssClass("active"));
+        pagination.get(1).shouldHave(cssClass("active").because("Hľadaný li element v stránkovaní, by mal mať css class .active."));
     }
 
 }

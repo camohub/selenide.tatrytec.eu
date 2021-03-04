@@ -1,6 +1,9 @@
+
 package tests;
 
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -14,22 +17,25 @@ import java.net.MalformedURLException;
 public class baseTest
 {
 
-    protected String baseUrl = "http://localhost/seleniumweb";
-
+    static {
+        Configuration.baseUrl = "https://tatrytec.eu";
+        Configuration.startMaximized = true;
+        //Configuration.holdBrowserOpen = true;
+    }
 
     /**
      * This is the JUnit way how to catch fail event.
      */
-    @Rule
-    public TestWatcher failWatcher = new TestWatcher();
+    //@Rule
+    //public TestWatcher failWatcher = new TestWatcher();
 
 
     @Before
     public void baseSetUp() throws MalformedURLException
     {
-        (new WebDriverService()).setDriver();
+        //(new WebDriverService()).setDriver();
 
-        failWatcher.setTestClass(getClass().getSimpleName());
+        //failWatcher.setTestClass(getClass().getSimpleName());
     }
 
 

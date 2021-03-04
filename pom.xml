@@ -69,6 +69,13 @@
             <artifactId>tempus-fugit</artifactId>
             <version>1.1</version>
         </dependency>
+        <!-- Selenide dependency for logging https://selenide.org/2019/10/31/selenide-5.5.0/ -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.28</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

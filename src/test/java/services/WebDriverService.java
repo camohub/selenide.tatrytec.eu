@@ -20,7 +20,10 @@ public class WebDriverService
     public static final String HUB_URL = "http://127.0.0.1:4444/wd/hub";
 
 
-
+    /**
+     * If does not use native Selenide driver we has to set it up in WebDriverRunner.setWebDriver(driver);
+     * @throws MalformedURLException
+     */
     public void setDriver() throws MalformedURLException
     {
         String browser = System.getProperty("browser");

@@ -11,17 +11,15 @@ import org.junit.runner.RunWith;
 import pages.HomepagePage;
 
 
+@Category({FastTest.class, FullTest.class})
 @RunWith(ConcurrentTestRunner.class)
 public class HomepageTest extends baseTest
 {
 
-    @Category({FastTest.class, FullTest.class})
     @Test
     public void homepage() throws InterruptedException
     {
         HomepagePage homepagePage = new HomepagePage();
-
-        homepagePage.openPage();
 
         homepagePage.testHeader();
         homepagePage.testMenu();
