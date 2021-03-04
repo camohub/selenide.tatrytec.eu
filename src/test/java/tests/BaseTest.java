@@ -4,6 +4,7 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -16,6 +17,9 @@ import java.net.MalformedURLException;
 
 public class BaseTest
 {
+
+    @Rule
+    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
 
     static {
         Configuration.baseUrl = "https://tatrytec.eu";

@@ -47,11 +47,11 @@ public class LoginTest extends BaseTest
     public static List<Object[]> loginData()
     {
         return Arrays.asList(new Object[][] {
-                /* email    password    cssSelector    message */
-                {"","", "#loginModal .alert-danger", "Nesprávny email alebo heslo."},
-                {"aaaaaaa", "aaaaaaaaaa", "#loginModal .alert-danger", "Nesprávny email alebo heslo."},
-                {"aaaaaaa@aaaaa.aa", "aaaaaaaaaa", "#loginModal .alert-danger", "Nesprávny email alebo heslo."},
-                {"vladimircamaj@gmail.com", "vladimir", "#alerts-wrapper .alert-success", "Vitajte na palube"},
+            /* email    password    cssSelector    message */
+            {"","", "#loginModal .alert-danger", "Nesprávny email, alebo heslo."},
+            {"aaaaaaa", "aaaaaaaaaa", "#loginModal .alert-danger", "Nesprávny email, alebo heslo."},
+            {"aaaaaaa@aaaaa.aa", "aaaaaaaaaa", "#loginModal .alert-danger", "Nesprávny email, alebo heslo."},
+            {"vladimircamaj@gmail.com", "vladimir", "#alerts-wrapper .alert-success", "Vitajte na palube"},
         });
     }
 }
