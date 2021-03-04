@@ -76,6 +76,13 @@
             <version>1.7.28</version>
             <scope>test</scope>
         </dependency>
+        <!-- Reports library https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>2.13.8</version>
+        </dependency>
+
     </dependencies>
 
     <build>
