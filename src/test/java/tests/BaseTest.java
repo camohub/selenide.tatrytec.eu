@@ -44,7 +44,7 @@ public class BaseTest
     @Before
     public void baseSetUp() throws MalformedURLException
     {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
 
         //(new WebDriverService()).setDriver();
 
