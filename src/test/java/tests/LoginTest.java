@@ -11,9 +11,6 @@ import pages.LoginPage;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
-
 
 @Category({FastTest.class, FullTest.class})
 @RunWith(Parameterized.class)
