@@ -14,11 +14,12 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 
-public class baseTest
+public class BaseTest
 {
 
     static {
         Configuration.baseUrl = "https://tatrytec.eu";
+        Configuration.headless = true;
         Configuration.startMaximized = true;
         //Configuration.holdBrowserOpen = true;
     }

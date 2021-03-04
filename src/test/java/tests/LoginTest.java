@@ -13,12 +13,11 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
-import static pages.BasePage.OPEN_URL;
 
 
 @Category({FastTest.class, FullTest.class})
 @RunWith(Parameterized.class)
-public class LoginTest extends baseTest
+public class LoginTest extends BaseTest
 {
 
     String email;

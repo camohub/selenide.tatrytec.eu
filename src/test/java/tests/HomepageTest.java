@@ -13,7 +13,7 @@ import pages.HomepagePage;
 
 @Category({FastTest.class, FullTest.class})
 @RunWith(ConcurrentTestRunner.class)
-public class HomepageTest extends baseTest
+public class HomepageTest extends BaseTest
 {
 
     @Test
