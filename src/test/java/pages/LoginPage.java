@@ -36,6 +36,6 @@ public class LoginPage extends BasePage
     {
         // Is new element do not use prev one.
         $(cssSelector).shouldBe(visible, ofSeconds(7))
-                .shouldHave(text(text).because("Prihlasovanie nedopadlo podľa očakávania. Alert neobsahuje text " + text));
+                .shouldHave( text(text) );
     }
 }
