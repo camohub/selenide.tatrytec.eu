@@ -20,7 +20,8 @@ public class HomepagePage extends BasePage
 
     public void testHeader() throws InterruptedException
     {
-        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.eu"));
+        SelenideElement header = $("#header")
+                .shouldHave( exactText("Tatrytec.euuu").because("Homapage header má obsahovať text Tatrytec.eu"));
     }
 
 

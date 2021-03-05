@@ -16,29 +16,31 @@ import rules.TestWatcher;
 import services.WebDriverService;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import com.typesafe.config.ConfigFactory;
 
 
 public class BaseTest
 {
 
+    // This is the JUnit way how to catch fail event.
     @Rule
-    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
+    public TestWatcher failWatcher = new TestWatcher();
 
+    // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
+    //@Rule
+    //public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
+
+    // Create test report as table
     @Rule
     public TextReport textReport = new TextReport();
 
+
     static {
         Configuration.baseUrl = "https://tatrytec.eu";
-        Configuration.headless = true;
         Configuration.startMaximized = true;
+        Configuration.headless = true;
         //Configuration.holdBrowserOpen = true;
     }
-
-    /**
-     * This is the JUnit way how to catch fail event.
-     */
-    //@Rule
-    //public TestWatcher failWatcher = new TestWatcher();
 
 
     @Before
@@ -48,7 +50,7 @@ public class BaseTest
 
         //(new WebDriverService()).setDriver();
 
-        //failWatcher.setTestClass(getClass().getSimpleName());
+        failWatcher.setTestClass(getClass().getSimpleName());
     }
 
 
