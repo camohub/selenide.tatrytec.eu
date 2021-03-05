@@ -2,12 +2,13 @@
 package tests;
 
 
+import com.codeborne.selenide.AssertionMode;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
+import com.codeborne.selenide.junit.SoftAsserts;
 import com.codeborne.selenide.junit.TextReport;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -30,15 +31,22 @@ public class BaseTest
     //@Rule
     //public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
 
-    // Create test report as table
+    // Create test report as table.
     @Rule
     public TextReport textReport = new TextReport();
 
+    // Reports all failed tests not only the first one.
+    @Rule
+    public SoftAsserts softAsserts = new SoftAsserts();
+
 
     static {
+        Configuration.remote = "http://127.0.0.1:4444/wd/hub";
         Configuration.baseUrl = "https://tatrytec.eu";
+        Configuration.assertionMode = AssertionMode.SOFT;  // Is able to use it on Class level.
         Configuration.startMaximized = true;
         Configuration.headless = true;
+        Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
     }
 
@@ -46,8 +54,6 @@ public class BaseTest
     @Before
     public void baseSetUp() throws MalformedURLException
     {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-
         //(new WebDriverService()).setDriver();
 
         failWatcher.setTestClass(getClass().getSimpleName());
