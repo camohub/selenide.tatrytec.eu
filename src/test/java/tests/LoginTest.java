@@ -3,6 +3,8 @@ package tests;
 
 import categories.FastTest;
 import categories.FullTest;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -46,12 +48,16 @@ public class LoginTest extends BaseTest
     @Parameterized.Parameters
     public static List<Object[]> loginData()
     {
+        Config conf = ConfigFactory.load();
+        String validPass = conf.getString("login.password");
+        String validEmail = conf.getString("login.email");
+
         return Arrays.asList(new Object[][] {
             /* email    password    cssSelector    message */
             {"","", "#loginModal .alert-danger", "Nesprávny email, alebo heslo."},
             {"aaaaaaa", "aaaaaaaaaa", "#loginModal .alert-danger", "Nesprávny email, alebo heslo."},
             {"aaaaaaa@aaaaa.aa", "aaaaaaaaaa", "#loginModal .alert-danger", "Nesprávny email, alebo heslo."},
-            {"vladimircamaj@gmail.com", "vladimir", "#alerts-wrapper .alert-success", "Vitajte na palube"},
+            {validEmail, validPass, "#alerts-wrapper .alert-success", "Vitajte na palube"},
         });
     }
 }

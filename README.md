@@ -20,8 +20,17 @@ Konfigurácia
 ====================
 Configuration.remote = "http://127.0.0.1:4444/wd/hub";
 Configuration.baseUrl = "https://tatrytec.eu";
-Configuration.assertionMode = AssertionMode.SOFT;
 Configuration.startMaximized = true;
 Configuration.headless = true;
-Configuration.assertionMode = AssertionMode.SOFT;  // Toto sa väčšinou nastavuje pre každú triedu osobintne.
+// SOFT assert sa väčšinou nastavuje pre každú triedu osobintne. https://github.com/lightbend/config
+Configuration.assertionMode = AssertionMode.SOFT;  
 
+POM.XML
+=====================
+- Pri volaní z Jenkinsu sa nastavujú premenné
+    <category></category>
+    <BUILD_URL>${BUILD_URL}</BUILD_URL> - kôli linkom na Selenide screenshot
+  
+Config
+=====================
+application.conf - je to implenentácia knižnice lightbend/config

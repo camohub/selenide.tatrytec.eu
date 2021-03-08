@@ -15,6 +15,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Test category - creates pom variable $category used in surefire plugin -->
         <category></category>
+        <!-- This create variable BUILD_URL which comes from -D parameter of console command  -->
+        <BUILD_URL>${BUILD_URL}</BUILD_URL>
     </properties>
 
     <profiles>
@@ -56,7 +58,7 @@
             <artifactId>selenide</artifactId>
             <version>5.19.0</version>
         </dependency>
-        <!-- library contains utility classes, stream implementations, file filters, file comparators,  -->
+        <!-- library contains utility clases SLF4J, stream implementations, file filters, file comparators,  -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -94,6 +96,12 @@
             <artifactId>cucumber-java</artifactId>
             <version>6.8.1</version>
             <scope>test</scope>
+        </dependency>
+        <!-- Library to load application.conf file -->
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>1.4.1</version>
         </dependency>
 
     </dependencies>
