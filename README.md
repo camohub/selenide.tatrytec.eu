@@ -28,7 +28,7 @@ Configuration.assertionMode = AssertionMode.SOFT;
 POM.XML
 =====================
 - Pri volaní z Jenkinsu sa nastavujú premenné
-    <category></category>
+    <category></category> - koli profilom(ketegóriám) testov
     <BUILD_URL>${BUILD_URL}</BUILD_URL> - kôli linkom na Selenide screenshot
   
 Config
