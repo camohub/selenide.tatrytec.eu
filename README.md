@@ -18,6 +18,8 @@ Nastavenia browsera je v triede BaseTest
 
 Konfigurácia
 ====================
+resources/application.conf - je to implenentácia knižnice lightbend/config
+
 Configuration.remote = "http://127.0.0.1:4444/wd/hub";
 Configuration.baseUrl = "https://tatrytec.eu";
 Configuration.startMaximized = true;
@@ -30,7 +32,3 @@ POM.XML
 - Pri volaní z Jenkinsu sa nastavujú premenné
     <category></category> - koli profilom(ketegóriám) testov
     <BUILD_URL>${BUILD_URL}</BUILD_URL> - kôli linkom na Selenide screenshot
-  
-Config
-=====================
-application.conf - je to implenentácia knižnice lightbend/config
