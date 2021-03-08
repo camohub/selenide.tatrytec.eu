@@ -48,7 +48,7 @@ public class LoginTest extends BaseTest
     @Parameterized.Parameters
     public static List<Object[]> loginData()
     {
-        Config conf = ConfigFactory.load();
+        Config conf = ConfigFactory.load();  // resources/application.conf
         String validPass = conf.getString("login.password");
         String validEmail = conf.getString("login.email");
 
