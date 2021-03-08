@@ -56,7 +56,7 @@ public class BaseTest
     {
         //(new WebDriverService()).setDriver();
 
-        failWatcher.setTestClass(getClass().getSimpleName());
+        //failWatcher.setTestClass(getClass().getSimpleName());
     }
 
 
