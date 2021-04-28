@@ -8,6 +8,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class AdminPage extends BasePage
 {
 
+
+
     public AdminPage()
     {
         open(OPEN_URL);
