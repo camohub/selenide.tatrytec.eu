@@ -42,8 +42,8 @@ public class HomepagePage extends BasePage
 
     public void testPagination()
     {
-        ElementsCollection pagination = $$("ul.pagination li a")
-                .shouldBe( sizeGreaterThan(2) );
+        ElementsCollection pagination = $$("ul.pagination li")
+                .shouldBe( sizeGreaterThan(3) );
         pagination.get(1).shouldHave( cssClass("active") );
     }
 
