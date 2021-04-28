@@ -4,7 +4,7 @@ package tests;
 import categories.FastTest;
 import categories.FullTest;
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
+import services.ConfigSingletonService;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -48,7 +48,7 @@ public class LoginTest extends BaseTest
     @Parameterized.Parameters
     public static List<Object[]> loginData()
     {
-        Config conf = ConfigFactory.load();  // resources/application.conf
+        Config conf = ConfigSingletonService.conf();  // resources/application.conf
         String validPass = conf.getString("login.password");
         String validEmail = conf.getString("login.email");
 
