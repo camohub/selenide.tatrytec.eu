@@ -33,7 +33,7 @@ public class HomepagePage extends BasePage
     public void testMenu()
     {
         ElementsCollection sideMenu = $$("#sideMenu li")
-                .shouldBe( sizeGreaterThan(40) )
+                .shouldBe( sizeGreaterThan(5) )
                 .shouldHave( itemWithText("Najnovšie") )
                 .shouldHave( itemWithText("Prihlásiť") )
                 .shouldHave( itemWithText("Registrovať") );
